@@ -6,13 +6,13 @@ from flask import (
         )
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
-@app.route('/',methods=['GET','POST'])
+@app.route('/',methods=['GET', 'POST'])
 def index():
-    url_cursos = links()
+    cursos= links()
 
-    return render_template('index.html',url_cursos=url_cursos)
+    return render_template('index.html',cursos=cursos)
 
 
 
@@ -29,5 +29,3 @@ if __name__ == '__main__':
     port  = int(os.environ.get("PORT", 5000))
  
     app.run(host, port)
-
-'''App complet'''
